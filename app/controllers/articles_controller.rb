@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
         @comment = Comment.new
         @comment.article_id = @article.id
     end
-
+    before_filter :require_login, except: [:index, :show]
     def new
         @article = Article.new
     end
